@@ -18,6 +18,13 @@ app.post('/todos',(req,res)=>{
   });
 });
 
+app.get('/todos',(req,res)=>{
+  Todo.find().then((todos)=>{
+    res.send({todos })
+  },(e)=>{
+    res.send(e.message)
+  });
+});
 app.listen(3000,()=>{
   console.log('Listening in port 3000');
 })
